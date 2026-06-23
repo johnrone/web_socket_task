@@ -11,14 +11,22 @@ class PushNotificationService extends GetxService {
   static FirebaseMessaging messaging = FirebaseMessaging.instance;
   Future<PushNotificationService> init() async {
     if (kIsWeb) return this;
-    await _requestPermission();
-    await LocalNotificationService.init();
 
-    await _getToken();
-    FirebaseMessaging.onBackgroundMessage(handleBGMessage);
-    FirebaseMessaging.onMessage.listen((message) {
-      LocalNotificationService.showNotification(message);
-    });
+    try {
+      await _requestPermission();
+      await LocalNotificationService.init();
+
+
+      _getToken();
+
+      FirebaseMessaging.onBackgroundMessage(handleBGMessage);
+      FirebaseMessaging.onMessage.listen((message) {
+        LocalNotificationService.showNotification(message);
+      });
+    } catch (e) {
+      print("Error in PushNotificationService init: $e");
+    }
+
     return this;
   }
 

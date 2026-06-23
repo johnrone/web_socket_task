@@ -15,32 +15,57 @@ import 'package:firebase_core/firebase_core.dart';
 
 import 'firebase_options.dart';
 
-void main() async{
+void main() async {
+  print("App starting...");
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  await Get.putAsync(() => StorageService().init());
-  await Get.putAsync(() => PushNotificationService().init());
-    
-  
-  runApp( MyApp());
+
+  try {
+
+    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  } catch (e) {
+    print("Firebase initialization failed: $e");
+  }
+
+  try {
+
+    await Get.putAsync(() => StorageService().init());
+
+  } catch (e) {
+    print("StorageService initialization failed: $e");
+  }
+
+  try {
+
+    await Get.putAsync(() => PushNotificationService().init());
+    } catch (e) {
+    print("PushNotificationService initialization failed: $e");
+  }
+
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-   MyApp({super.key});
- String ? token = Get.find<StorageService>().getToken();
+  MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
+    String? token;
+    try {
+      token = Get.find<StorageService>().getToken();
+    } catch (e) {
+      print("Error finding StorageService: $e");
+    }
+
     return ScreenUtilInit(
-      designSize: Size(375, 812),
+      designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           initialBinding: AppBinding(),
-          // home: AddressScreen(),
-          initialRoute:AppRoutes.login,
-          //  token !=null ? AppRoutes.home : AppRoutes.login,
+          initialRoute: token != null ? AppRoutes.home : AppRoutes.login,
           getPages: AppPages.pages,
         );
       },
