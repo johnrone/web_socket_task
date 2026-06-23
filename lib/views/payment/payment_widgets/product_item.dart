@@ -3,9 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:websocket/core/constants/app_text_style.dart';
 
 class PaymentItem extends StatelessWidget {
-  final item;
+  final dynamic item;
 
-  const PaymentItem.PaymentItem({super.key, required this.item});
+  const PaymentItem.paymentItem({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {

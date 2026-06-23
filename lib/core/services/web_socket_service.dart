@@ -14,7 +14,7 @@ class WebSocketService extends GetxService{
   final RxList<Map<String, dynamic>> priceHistory=<Map<String, dynamic>>[].obs;
 
   Future<WebSocketService> init() async {
-      Future.delayed(Duration(seconds: 8), () {
+      Future.delayed(Duration(seconds: 6), () {
      connect();});
 
     return this;

@@ -9,8 +9,7 @@ import 'package:get/get.dart';
 import 'package:websocket/views/payment/payment_controller/payment_controller.dart';
 
 class BottomSection extends StatelessWidget {
-  final PaymentController paymentController =
-    Get.find();
+  final PaymentController paymentController = Get.find();
   final double total;
 
    BottomSection({super.key, required this.total});

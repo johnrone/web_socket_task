@@ -6,7 +6,6 @@ import 'package:websocket/core/constants/app_icons.dart';
 import 'package:websocket/core/constants/app_routes.dart';
 import 'package:websocket/core/constants/app_spacing.dart';
 import 'package:websocket/core/constants/app_text_style.dart';
-import 'package:websocket/views/notifications/notifications_screen/notifications_screen.dart';
 
 class HomeHeader extends StatelessWidget {
   final String title;
@@ -39,7 +38,7 @@ class HomeHeader extends StatelessWidget {
             AppSpacing.h8,
             IconButton(
               onPressed: () {Get.toNamed(AppRoutes.notifications);},
-              icon: SvgPicture.asset(AppIcons.notification),
+              icon: Badge(label: Text('5'),child: SvgPicture.asset(AppIcons.notification)),
             ),
           ],
         ),

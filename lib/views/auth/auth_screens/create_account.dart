@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:websocket/core/constants/app_icons.dart';
-import 'package:websocket/core/constants/app_routes.dart';
 import 'package:websocket/core/constants/app_spacing.dart';
 import 'package:websocket/core/constants/app_text_style.dart';
 import 'package:websocket/core/constants/app_colors.dart';

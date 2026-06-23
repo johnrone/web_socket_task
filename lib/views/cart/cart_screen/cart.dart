@@ -183,11 +183,13 @@ class CartScreen extends StatelessWidget {
                 AppSpacing.h16,
 
                 // 🟢 Next
-                Custombutton(
-                  onPressed: () {
-                    Get.toNamed(AppRoutes.address);
-                  },
-                  buttontext: 'Next',
+                Expanded(
+                  child: Custombutton(
+                    onPressed: () {
+                      Get.toNamed(AppRoutes.address);
+                    },
+                    buttontext: 'Next',
+                  ),
                 ),
               ],
             ),

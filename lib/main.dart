@@ -1,6 +1,5 @@
 
 
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,7 +11,6 @@ import 'package:websocket/core/services/notification_service.dart';
 import 'package:websocket/core/services/storage_service.dart';
 
 import 'package:firebase_core/firebase_core.dart';
-import 'package:websocket/core/web_socket/web_socket_server.dart';
 
 
 import 'firebase_options.dart';
@@ -41,7 +39,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           initialBinding: AppBinding(),
           // home: AddressScreen(),
-          initialRoute:AppRoutes.createAccount,
+          initialRoute:AppRoutes.login,
           //  token !=null ? AppRoutes.home : AppRoutes.login,
           getPages: AppPages.pages,
         );

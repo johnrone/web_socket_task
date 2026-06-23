@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:websocket/core/constants/app_icons.dart';
 import 'package:websocket/core/constants/app_colors.dart';
 import 'package:websocket/core/constants/app_routes.dart';
-import 'package:websocket/views/control_panel/control_panel_screen.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -29,11 +28,14 @@ class _BottomNavBarState extends State<BottomNavBar> {
       unselectedItemColor: AppColors.neutral,
       items: [
         BottomNavigationBarItem(
-          icon: SvgPicture.asset(AppIcons.home, color: AppColors.neutral),
+          icon: SvgPicture.asset(
+            AppIcons.home,
+            colorFilter: ColorFilter.mode(AppColors.neutral, BlendMode.srcIn),
+          ),
           label: 'Home',
           activeIcon: SvgPicture.asset(
             AppIcons.home,
-            color: AppColors.primary,
+            colorFilter: ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
           ),
         ),
         BottomNavigationBarItem(
@@ -41,23 +43,29 @@ class _BottomNavBarState extends State<BottomNavBar> {
           label: 'control panel',
           activeIcon: SvgPicture.asset(
             AppIcons.myorder,
-            color: AppColors.primary,
+            colorFilter: ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
           ),
         ),
         BottomNavigationBarItem(
-          icon: SvgPicture.asset(AppIcons.favorite, color: AppColors.neutral),
+          icon: SvgPicture.asset(
+            AppIcons.favorite,
+            colorFilter: ColorFilter.mode(AppColors.neutral, BlendMode.srcIn),
+          ),
           label: 'Favorite',
           activeIcon: SvgPicture.asset(
             AppIcons.favorite,
-            color: AppColors.primary,
+            colorFilter: ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
           ),
         ),
         BottomNavigationBarItem(
-          icon: SvgPicture.asset(AppIcons.profile, color: AppColors.neutral),
+          icon: SvgPicture.asset(
+            AppIcons.profile,
+            colorFilter: ColorFilter.mode(AppColors.neutral, BlendMode.srcIn),
+          ),
           label: 'My Profile',
           activeIcon: SvgPicture.asset(
             AppIcons.profile,
-            color: AppColors.primary,
+            colorFilter: ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
           ),
         ),
       ],

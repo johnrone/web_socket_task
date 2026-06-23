@@ -64,20 +64,18 @@ class ProductDetailsScreen extends StatelessWidget {
                       children: [
                         Expanded(child: ProductInfo(product: product)),
 
-                        Container(
-                          child: Column(
-                            children: [
-                              ProductQuantity(),
-                              AppSpacing.h8,
-                              Text(
-                                'Avaliable in stok',
-                                overflow: TextOverflow.ellipsis,
-                                style: AppTextStyle.body1.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                ),
+                        Column(
+                          children: [
+                            ProductQuantity(),
+                            AppSpacing.h8,
+                            Text(
+                              'Avaliable in stok',
+                              overflow: TextOverflow.ellipsis,
+                              style: AppTextStyle.body1.copyWith(
+                                fontWeight: FontWeight.bold,
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ],
                     ),

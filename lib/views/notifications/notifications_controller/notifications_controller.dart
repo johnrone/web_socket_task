@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 import 'package:websocket/models/notifications_model.dart';
 
 class NotificationsController extends GetxController {
+
+
   @override
   void onInit(){
     super.onInit();
@@ -25,6 +27,18 @@ class NotificationsController extends GetxController {
         .map((snapshot) => snapshot.docs
             .map((doc) => NotificationsModel.fromFirestore(doc))
             .toList());
+
+  }
+
+  Future<int?> getNumOfNotifications() async {
+    final user = FirebaseAuth.instance.currentUser;
+    final collection= FirebaseFirestore.instance
+        .collection('notifications')
+        .doc(user!.uid)
+        .collection('notifications');
+    final count=collection.count();
+    final AggregateQuerySnapshot snapshot = await count.get();
+    return snapshot.count;
 
   }
 }

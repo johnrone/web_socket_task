@@ -25,7 +25,7 @@ class ProductsSection extends StatelessWidget {
 
         AppSpacing.h12,
 
-        ...items.map((item) => PaymentItem.PaymentItem(item: item)),
+        ...items.map((item) => PaymentItem.paymentItem(item: item)),
       ],
     );
   }

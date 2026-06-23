@@ -7,7 +7,7 @@ class SearchControllerrr extends GetxController {
   final HomeController productController = Get.find();
   var isLoading = true.obs;
 
-  var filteredProducts = <ProductModel>[].obs;
+ RxList<ProductModel> filteredProducts = <ProductModel>[].obs;
 
   @override
   void onInit() {
